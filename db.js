@@ -21,7 +21,8 @@ db.loginUser = (username,password) => {
 
 db.allRooms = () => {
   return new Promise((resolve, reject) => {
-    pool.query("SELECT RoomID, RoomName, FullName, Phone, RoomType FROM Room r INNER JOIN User u ON r.UserID = u.UserID", (err, res) => {
+    //pool.query("SELECT RoomID, RoomName, FullName, Phone, RoomType FROM Room r INNER JOIN User u ON r.UserID = u.UserID", (err, res) => {
+    pool.query("SELECT RoomID, RoomName FROM Room", (err, res) => {
       if(err) return reject(err);
       return resolve(res);
     })

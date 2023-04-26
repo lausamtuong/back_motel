@@ -21,11 +21,13 @@ module.exports = {
 
     allRoom: async (req, res) => {
         try{        
+            console.log(process.env.DB_USERNAME)
             const roomData = await db.allRooms()
             if(roomData){
                 res.status(200).json(roomData)
             }
         }catch (err) {
+            console.log(err)
             res.status(400).json("Bad Request Error");
         }
     },

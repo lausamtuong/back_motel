@@ -4,6 +4,7 @@ const cors = require('cors');
 const mqtt = require('mqtt')
 const nodemailer = require('nodemailer');
 const userRoute = require('./routes/user')
+require('dotenv').config()
 
 
 const app = express();
