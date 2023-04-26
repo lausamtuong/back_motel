@@ -2,13 +2,8 @@ const mysql = require('mysql2');
 
 const pool = mysql.createPool({
   connectionLimit: 10,
-  // host: process.env.DB_HOST ,
-   user: "root",
-  // password: process.env.DB_PASSWORD ,
-  // database: process.env.DATABASE ,
-  // port: process.env.DB_PORT ,
+  user: "root",
   host: "containers-us-west-207.railway.app",
-  //user: "root",
   password: "QpM2kjzDJrGR03esoFt0",
   database: "railway",
   port : "7552",
@@ -37,8 +32,8 @@ db.allRooms = () => {
     debug: true
   })
   return new Promise((resolve, reject) => {
-    //pool.query("SELECT RoomID, RoomName, FullName, Phone, RoomType FROM Room r INNER JOIN User u ON r.UserID = u.UserID", (err, res) => {
-    pool.query("SELECT RoomID, RoomName FROM Room", (err, res) => {
+    pool.query("SELECT RoomID, RoomName, FullName, Phone, RoomType FROM Room r INNER JOIN User u ON r.UserID = u.UserID", (err, res) => {
+   // pool.query("SELECT RoomID, RoomName FROM Room", (err, res) => {
       if(err) return reject(err);
       return resolve(res);
     })
