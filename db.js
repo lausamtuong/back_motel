@@ -3,9 +3,11 @@ const mysql = require('mysql');
 const pool = mysql.createPool({
   connectionLimit: 10,
   host: process.env.DB_HOST ,
-  user: process.env.DB_USERNAME,
+  username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD ,
-  database: process.env.DATABASE 
+  database: process.env.DATABASE ,
+  port: process.env.DB_PORT ,
+  debug: true
 });
 
 let db={}
@@ -20,6 +22,15 @@ db.loginUser = (username,password) => {
 }
 
 db.allRooms = () => {
+  console.log({
+    connectionLimit: 10,
+    host: process.env.DB_HOST ,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD ,
+    database: process.env.DATABASE ,
+    port: process.env.DB_PORT ,
+    debug: true
+  })
   return new Promise((resolve, reject) => {
     //pool.query("SELECT RoomID, RoomName, FullName, Phone, RoomType FROM Room r INNER JOIN User u ON r.UserID = u.UserID", (err, res) => {
     pool.query("SELECT RoomID, RoomName FROM Room", (err, res) => {
