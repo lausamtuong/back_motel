@@ -28,7 +28,7 @@ module.exports = {
             }
         }catch (err) {
             console.log(err)
-            res.status(400).json("Bad Request Error");
+            res.status(400).json(err);
         }
     },
 
