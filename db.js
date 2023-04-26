@@ -2,11 +2,16 @@ const mysql = require('mysql');
 
 const pool = mysql.createPool({
   connectionLimit: 10,
-  host: process.env.DB_HOST ,
-  username: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD ,
-  database: process.env.DATABASE ,
-  port: process.env.DB_PORT ,
+  // host: process.env.DB_HOST ,
+   user: "root",
+  // password: process.env.DB_PASSWORD ,
+  // database: process.env.DATABASE ,
+  // port: process.env.DB_PORT ,
+  host: "containers-us-west-207.railway.app",
+  //user: "root",
+  password: "QpM2kjzDJrGR03esoFt0",
+  database: "railway",
+  port : "7552",
   debug: true
 });
 
