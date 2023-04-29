@@ -14,7 +14,7 @@ let db={}
 
 db.loginUser = (username,password) => {
   return new Promise((resolve, reject) => {
-    pool.query("SELECT * FROM User JOIN Room ON user.UserID = Room.UserID WHERE Username = ? AND Password = ?",[username,password], (err, res) => {
+    pool.query("SELECT * FROM User JOIN Room ON User.UserID = Room.UserID WHERE Username = ? AND Password = ?",[username,password], (err, res) => {
       if(err) return reject(err);
       return resolve(res[0]);
     })
