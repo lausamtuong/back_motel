@@ -42,7 +42,7 @@ db.allRooms = () => {
 
 db.getRoomByID = (id) => {
   return new Promise((resolve, reject) => {
-    pool.query(`SELECT re.ElectricReading, re.WaterReading, re.ReadingDate, r.roomName, r.roomType, u.Email, u.UserName, u.Phone FROM reading re JOIN room r ON r.RoomID = re.RoomID JOIN user u ON u.UserID = r.UserID WHERE r.RoomID = ?`,[id],(err,res) => {
+    pool.query(`SELECT re.ElectricReading, re.WaterReading, re.ReadingDate, r.roomName, r.roomType, u.Email, u.UserName, u.Phone FROM Reading re JOIN Room r ON r.RoomID = re.RoomID JOIN User u ON u.UserID = r.UserID WHERE r.RoomID = ?`,[id],(err,res) => {
       if(err) return reject(err);
       return resolve(res)
     })
